@@ -18,6 +18,8 @@ module.exports = {
           ",randomNumber100 - Outputs a random number between 1 and 100\n" +
           ",serverinfo - Gives you Information about the Server\n" +
           ",botinfo - Gives you Information about the Bot\n" +
+          ",play + Link - Plays Music\n" +
+          ",airhorn - Plays a Airhorn Sound\n" +
           ""
       )
       .setFooter("Bot made by Firephoenix#6618");
