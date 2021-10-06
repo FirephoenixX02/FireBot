@@ -17,13 +17,11 @@ for (const file of commandFiles) {
 }
 
 const BOT_PREFIX = ",";
-const welcome = require("./misc/welcome");
 
 client.on("ready", () => {
   console.log("Fire Bot is ready! ");
   client.user.setStatus("online");
   client.user.setActivity("FireClient", { type: "PLAYING" });
-  //welcome(client)
 });
 
 client.on("message", (msg) => {
@@ -43,22 +41,6 @@ client.on("message", (msg) => {
 });
 
 client.on("messageDelete", (msg) => {
-  //Message Deleted Listener
-
-  //const LogChannel = client.channels.cache.get("850355878888603648");
-  //const DeletedLog = new Discord.MessageEmbed()
-  //.setTitle("Deleted Message")
-  //.addField("Deleted by", `${msg.author} - (${msg.author.id})`)
-  //.addField("In", msg.channel)
-  //.addField("Content", msg.content)
-  //.setColor("RED")
-  //.setThumbnail(msg.author.displayAvatarURL({ dynamic: true }));
-  //try {
-  // LogChannel.send(DeletedLog);
-  //} catch (error) {
-  //  console.log(error);
-  //}
-
   //Ghost Ping Listener
 
   if (msg.mentions.users.first()) {
@@ -88,6 +70,19 @@ client.on("messageUpdate", async (oldMessage, newMessage) => {
     );
     channel.send(embed);
   }
+
+  //Welcome Message
+
+  client.on('guildMemberAdd', member => {
+    console.log('guildMemberAdd')
+
+    const message = `Welcome <@${member.id}>!`
+
+    let channel = msg.guild.channels.cache.find(
+      (channel) => channel.name.toLowerCase() === "newmember"
+    );
+    channel.send(message)
+  })
 });
 
 client.login(process.env.BOT_TOKEN);

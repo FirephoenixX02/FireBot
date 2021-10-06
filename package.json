@@ -11,10 +11,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "bufferutil": "^4.0.4",
     "discord-ws": "^0.0.1",
     "discord.js": "^12.5.3",
     "discord.js-commando": "^0.12.3",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "erlpack": "github:discord/erlpack",
+    "ffmpeg-static": "^4.4.0",
+    "node": "^14.18.0",
+    "sodium": "^3.0.2",
+    "utf-8-validate": "^5.0.6",
+    "zlib-sync": "^0.1.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
