@@ -9,7 +9,7 @@ module.exports = {
       .setDescription("FireBot Info")
       .addFields(
         { name: "Name", value: "FireBot" },
-        { name: "Version", value: "1.0" },
+        { name: "Version", value: "1.4" },
         { name: "Developer", value: "Firephoenix#6618" },
         { name: "Creation Date", value: "05.06.2021" },
         { name: "Tag", value: "Fire Bot#1667" },
