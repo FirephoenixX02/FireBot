@@ -1,7 +1,7 @@
 module.exports = {
   name: "airhorn",
   description: "Plays Airhorn sound in Voice Channel",
-  async execute(msg, args) {
+  async execute(msg) {
     const voiceChannel = msg.member.voice.channel;
 
     if (!voiceChannel)

@@ -18,7 +18,7 @@ module.exports = {
       return msg.channel.send("You dont have the correct permissions!");
     if (!args.length)
       return msg.reply(
-        "You need to add a second argument(just the video title)"
+        "You need to add a second argument!"
       );
 
     const validURL = (str) => {
