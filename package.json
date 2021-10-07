@@ -19,6 +19,7 @@
     "dotenv": "^10.0.0",
     "erlpack": "github:discord/erlpack",
     "ffmpeg-static": "^4.4.0",
+    "minecraft-server-util": "^3.6.0",
     "node": "^14.18.0",
     "sodium": "^3.0.2",
     "utf-8-validate": "^5.0.6",
