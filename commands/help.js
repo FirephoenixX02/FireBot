@@ -20,6 +20,8 @@ module.exports = {
           ",botinfo - Gives you Information about the Bot\n" +
           ",play + Link - Plays Music\n" +
           ",airhorn - Plays a Airhorn Sound\n" +
+          ",userinfo (@User) - Gives Info about the User\n" +
+          ",mcserver IP PORT(Often 25565) - Gives Info about a Minecraft Server\n" +
           ""
       )
       .setFooter("Bot made by Firephoenix#6618");
