@@ -65,7 +65,7 @@ client.on("messageUpdate", async (oldMessage, newMessage) => {
       .setDescription(
         `${oldMessage.author} ghost pinged ${oldMessage.mentions.users.first()}`
       );
-    let channel = msg.guild.channels.cache.find(
+    let channel = oldMessage.guild.channels.cache.find(
       (channel) => channel.name.toLowerCase() === "ghostping"
     );
     channel.send(embed);

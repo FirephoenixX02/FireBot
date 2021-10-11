@@ -30,6 +30,15 @@ module.exports = {
             { 
                 name: "Type",
                 value: movie.type,
+            },
+            { 
+                name: "Awards",
+                value: movie.awards
+            },
+            {
+                name: "Release Date ",
+                value: movie.released
+
             }
         )
         msg.channel.send(embed)
