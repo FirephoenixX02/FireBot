@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aero/centra": "^1.0.7",
     "@discordjs/opus": "^0.5.3",
     "bufferutil": "^4.0.4",
     "discord-ws": "^0.0.1",
@@ -19,8 +20,10 @@
     "dotenv": "^10.0.0",
     "erlpack": "github:discord/erlpack",
     "ffmpeg-static": "^4.4.0",
+    "imdb-api": "^4.4.1",
     "minecraft-server-util": "^3.6.0",
     "node": "^14.18.0",
+    "novelcovid": "^3.0.2",
     "sodium": "^3.0.2",
     "utf-8-validate": "^5.0.6",
     "yt-search": "^2.10.1",
