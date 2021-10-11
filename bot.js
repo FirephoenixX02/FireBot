@@ -57,7 +57,7 @@ client.on("messageDelete", (msg) => {
   }
 });
 
-client.on("messageUpdate", async (oldMessage, newMessage) => {
+client.on("messageUpdate", async (oldMessage) => {
   if (oldMessage.mentions.users.first()) {
     if (oldMessage.mentions.users.first().bot) return;
     const embed = new Discord.MessageEmbed()

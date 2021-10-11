@@ -38,7 +38,22 @@ module.exports = {
             {
                 name: "Release Date ",
                 value: movie.released
-
+            },
+            {
+                name: "Rated",
+                value: movie.rated
+            },
+            {
+                name: "Website",
+                value: movie.website
+            },
+            {
+                name: "Movie Director",
+                value: movie.director
+            },
+            {
+                name: "Production",
+                value: movie.production
             }
         )
         msg.channel.send(embed)
