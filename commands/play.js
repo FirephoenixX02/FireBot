@@ -52,34 +52,34 @@ module.exports = {
         if (video) {
           song = { title: video.title, url: video.url };
         } else {
-          msg.channel.send("Error finding the Video.");
+          message.channel.send("Error finding video.");
         }
-        if (!server_queue) {
-          const queue_constructor = {
-            voice_channel: voice_channel,
-            text_channel: msg.channel,
-            connection: null,
-            songs: [],
-          };
+      }
+      if (!server_queue) {
+        const queue_constructor = {
+          voice_channel: voice_channel,
+          text_channel: msg.channel,
+          connection: null,
+          songs: [],
+        };
 
-          queue.set(msg.guild.id, queue_constructor);
-          queue_constructor.songs.push(song);
+        queue.set(msg.guild.id, queue_constructor);
+        queue_constructor.songs.push(song);
 
-          try {
-            const connection = await voice_channel.join();
-            queue_constructor.connection = connection;
-            video_player(msg.guild, queue_constructor.songs[0]);
-          } catch (err) {
-            queue.delete(msg.guild.id);
-            msg.channel.send("There was an Error connecting!");
-            throw err;
-          }
-        } else {
-          server_queue.songs.push(song);
-          return msg.reply(
-            `:musical_note: **${song.title}** was added to the queue!`
-          );
+        try {
+          const connection = await voice_channel.join();
+          queue_constructor.connection = connection;
+          video_player(msg.guild, queue_constructor.songs[0]);
+        } catch (err) {
+          queue.delete(msg.guild.id);
+          msg.channel.send("There was an Error connecting!");
+          throw err;
         }
+      } else {
+        server_queue.songs.push(song);
+        return msg.reply(
+          `:musical_note: **${song.title}** was added to the queue!`
+        );
       }
     }
     if (command === "skip") {
@@ -136,22 +136,25 @@ const stop_song = (msg, server_queue) => {
 
 const list_songs = (msg, server_queue) => {
   if (!msg.member.voice.channel)
-  return msg.channel.send(
-    "You need to be in a Voice Channel to use this command!"
-  );
+    return msg.channel.send(
+      "You need to be in a Voice Channel to use this command!"
+    );
   if (!server_queue) {
     return msg.channel.send("There are no songs in the queue!");
   }
   const embeds = [];
-  let k = 20
-  for(let i = 0; i < server_queue.songs.length; i+= 10) {
+  let k = 20;
+  for (let i = 0; i < server_queue.songs.length; i += 10) {
     const current = server_queue.songs.slice(i, k);
-    let j = i
+    let j = i;
     k += 10;
-    const info = current.map(track => `${++j}) [${track.title}](${track.url})`).join('\n')
-    const embed = new Discord.MessageEmbed()
-    .setDescription(`**[Current Song: ${server_queue.songs[0].title}](${server_queue.songs[0].url})**\n${info}`);
+    const info = current
+      .map((track) => `${++j}) [${track.title}](${track.url})`)
+      .join("\n");
+    const embed = new Discord.MessageEmbed().setDescription(
+      `**[Current Song: ${server_queue.songs[0].title}](${server_queue.songs[0].url})**\n${info}`
+    );
     embeds.push(embed);
   }
-  msg.channel.send(embeds)
-}
+  msg.channel.send(embeds);
+};
