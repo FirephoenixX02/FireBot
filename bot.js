@@ -28,16 +28,15 @@ client.on("message", (msg) => {
   if (!msg.content.startsWith(BOT_PREFIX) || msg.author.bot) return;
 
   const args = msg.content.slice(BOT_PREFIX.length).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
+  const cmd = args.shift().toLowerCase();
+  const command =
+    client.commands.get(cmd) ||
+    client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
 
-  if (!client.commands.has(command)) return;
-
-  try {
-    client.commands.get(command).execute(msg, args);
-  } catch (error) {
-    console.error(error);
-    msg.reply("There was an error trying to execute that command!");
-  }
+  if (command) command.execute(msg, args).catch((err) => {
+    msg.reply("There was an error executing the command")
+    throw err;
+  });
 });
 
 client.on("messageDelete", (msg) => {
@@ -73,16 +72,16 @@ client.on("messageUpdate", async (oldMessage) => {
 
   //Welcome Message
 
-  client.on('guildMemberAdd', member => {
-    console.log('guildMemberAdd')
+  client.on("guildMemberAdd", (member) => {
+    console.log("guildMemberAdd");
 
-    const message = `Welcome <@${member.id}>!`
+    const message = `Welcome <@${member.id}>!`;
 
     let channel = msg.guild.channels.cache.find(
       (channel) => channel.name.toLowerCase() === "newmember"
     );
-    channel.send(message)
-  })
+    channel.send(message);
+  });
 });
 
 client.login(process.env.BOT_TOKEN);
