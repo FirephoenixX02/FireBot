@@ -33,10 +33,11 @@ client.on("message", (msg) => {
     client.commands.get(cmd) ||
     client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
 
-  if (command) command.execute(msg, args).catch((err) => {
-    msg.reply("There was an error executing the command")
-    throw err;
-  });
+    try {
+  if (command) command.execute(msg, args)
+    } catch (err) {
+      msg.reply("There was an error executing the command!")
+    }
 });
 
 client.on("messageDelete", (msg) => {
