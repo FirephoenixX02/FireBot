@@ -18,7 +18,7 @@ module.exports = {
           ",randomNumber100 - Outputs a random number between 1 and 100\n" +
           ",serverinfo - Gives you Information about the Server\n" +
           ",botinfo - Gives you Information about the Bot\n" +
-          ",play + Link - Plays Music\n" +
+          ",play + Link or Keywords - Plays Music\n" +
           ",airhorn - Plays a Airhorn Sound\n" +
           ",userinfo (@User) - Gives Info about the User\n" +
           ",mcserver IP PORT(Often 25565) - Gives Info about a Minecraft Server\n" +

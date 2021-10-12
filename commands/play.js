@@ -1,11 +1,13 @@
 const ytdl = require("ytdl-core");
 const ytSearch = require("yt-search");
 
+const Discord = require("discord.js");
+
 const queue = new Map();
 
 module.exports = {
   name: "play",
-  aliases: ["skip", "stop"],
+  aliases: ["skip", "stop", "queue"],
   cooldown: 0,
   description: "Advanced music bot",
   async execute(msg) {
@@ -86,6 +88,9 @@ module.exports = {
     if (command === "stop") {
       stop_song(msg, server_queue);
     }
+    if (command === "queue") {
+      list_songs(msg, server_queue);
+    }
   },
 };
 
@@ -128,3 +133,25 @@ const stop_song = (msg, server_queue) => {
   server_queue.songs = [];
   server_queue.connection.dispatcher.end();
 };
+
+const list_songs = (msg, server_queue) => {
+  if (!msg.member.voice.channel)
+  return msg.channel.send(
+    "You need to be in a Voice Channel to use this command!"
+  );
+  if (!server_queue) {
+    return msg.channel.send("There are no songs in the queue!");
+  }
+  const embeds = [];
+  let k = 20
+  for(let i = 0; i < server_queue.songs.length; i+= 10) {
+    const current = server_queue.songs.slice(i, k);
+    let j = i
+    k += 10;
+    const info = current.map(track => `${++j}) [${track.title}](${track.url})`).join('\n')
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`**[Current Song: ${server_queue.songs[0].title}](${server_queue.songs[0].url})**\n${info}`);
+    embeds.push(embed);
+  }
+  msg.channel.send(embeds)
+}
