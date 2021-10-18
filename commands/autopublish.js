@@ -4,7 +4,7 @@ module.exports = (client) => {
 
     if (channel.type === "news") {
       message.crosspost();
-      console.log("Published News Message")
+      console.log("Published News Message");
     }
   });
 };

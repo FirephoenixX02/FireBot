@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const api = require('novelcovid');
+const api = require("novelcovid");
 
 module.exports = {
   name: "corona",
@@ -8,9 +8,9 @@ module.exports = {
     if (!args.length) {
       return msg.reply("Please specify a Country");
     }
-    api.all().then(console.log)
+    api.all().then(console.log);
     if (!args.join(" ") === "global") {
-      const data = await api.all() //Global Cases
+      const data = await api.all(); //Global Cases
       const embed = new Discord.MessageEmbed()
         .setTitle("Global Cases")
         .setColor("RED")

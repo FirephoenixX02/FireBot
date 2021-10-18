@@ -113,8 +113,7 @@ const video_player = async (guild, song) => {
     .on("finish", () => {
       if (song_queue.loopone) {
         video_player(guild, song_queue.songs[0]);
-      }
-      else if (song_queue.loopall) {
+      } else if (song_queue.loopall) {
         song_queue.songs.push(song_queue.songs[0]);
         song_queue.songs.shift();
       } else {
@@ -175,7 +174,7 @@ const list_songs = (msg, server_queue) => {
 const loop = (msg, server_queue) => {
   const BOT_PREFIX = ",";
   const args = msg.content.slice(BOT_PREFIX.length).trim().split(/ +/);
-  switch(args[1].toLowerCase()) {
+  switch (args[1].toLowerCase()) {
     case "all":
       server_queue.loopall = !server_queue.loopall;
       server_queue.loopone = false;
@@ -200,7 +199,7 @@ const loop = (msg, server_queue) => {
       server_queue.loopall = false;
       server_queue.loopone = false;
 
-      msg.channel.send("Loop has been disabled!")
+      msg.channel.send("Loop has been disabled!");
       break;
     default:
       msg.channel.send("Please specify the loop type! ,loop <one/all/off>");
