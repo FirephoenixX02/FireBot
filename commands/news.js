@@ -1,5 +1,3 @@
-const Discord = require("discord.js");
-
 module.exports = {
   name: "news",
   description: "Gives you to the Announcement Ping Role ",
