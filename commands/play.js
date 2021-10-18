@@ -7,7 +7,7 @@ const queue = new Map();
 
 module.exports = {
   name: "play",
-  aliases: ["skip", "stop", "queue"],
+  aliases: ["skip", "stop", "queue", "loop"],
   cooldown: 0,
   description: "Advanced music bot",
   async execute(msg) {
@@ -61,6 +61,8 @@ module.exports = {
           text_channel: msg.channel,
           connection: null,
           songs: [],
+          loopone: false,
+          loopall: false,
         };
 
         queue.set(msg.guild.id, queue_constructor);
@@ -91,6 +93,9 @@ module.exports = {
     if (command === "queue") {
       list_songs(msg, server_queue);
     }
+    if (command === "loop") {
+      loop(msg, server_queue);
+    }
   },
 };
 
@@ -106,7 +111,16 @@ const video_player = async (guild, song) => {
   song_queue.connection
     .play(stream, { seek: 0, volume: 1 })
     .on("finish", () => {
-      song_queue.songs.shift();
+      if (song_queue.loopone) {
+        video_player(guild, song_queue.songs[0]);
+      }
+      else if (song_queue.loopall) {
+        song_queue.songs.push(song_queue.songs[0]);
+        song.songs.shift();
+      } else {
+        song_queue.songs.shift();
+      }
+      //song_queue.songs.shift();
       video_player(guild, song_queue.songs[0]);
     });
   await song_queue.text_channel.send(
@@ -157,4 +171,39 @@ const list_songs = (msg, server_queue) => {
     embeds.push(embed);
   }
   msg.channel.send(embeds);
+};
+
+const loop = (msg, server_queue) => {
+  const BOT_PREFIX = ",";
+  const args = msg.content.slice(BOT_PREFIX.length).trim().split(/ +/);
+  switch(args[1].toLowerCase()) {
+    case "all":
+      server_queue.loopall = !server_queue.loopall;
+      server_queue.loopone = false;
+
+      if (server_queue.loopall === true) {
+        msg.channel.send("Loop all has already been enabled!");
+      } else {
+        msg.channel.send("Loop all has been turned off!");
+      }
+      break;
+    case "one":
+      server_queue.loopone = !server_queue.loopone;
+      server_queue.loopall = false;
+
+      if (server_queue.loopone === true) {
+        msg.channel.send("Loop one has already been enabled!");
+      } else {
+        msg.channel.send("Loop one has been disabled!");
+      }
+      break;
+    case "off":
+      server_queue.loopall = false;
+      server_queue.loopone = false;
+
+      msg.channel.send("Loop has been disabled!")
+      break;
+    default:
+      msg.channel.send("Please specify the loop type! ,loop <one/all/off>");
+  }
 };
