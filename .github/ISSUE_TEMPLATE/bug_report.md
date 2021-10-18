@@ -35,7 +35,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Bot (please complete the following information):**
  - Version [e.g. v1.0...]
-You can just type in ,botinfo to get what version the bot i running on currently.
+You can just type in ,botinfo to get what version the bot is currently running on.
 
 **Additional context**
 Add any other context about the problem here.
