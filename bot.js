@@ -37,6 +37,7 @@ client.on("message", (msg) => {
     if (command) command.execute(msg, args);
   } catch (err) {
     msg.reply("There was an error executing the command!");
+    console.log(err);
   }
 });
 
