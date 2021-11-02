@@ -22,6 +22,7 @@ module.exports = {
           ",airhorn - Plays a Airhorn Sound\n" +
           ",userinfo (@User) - Gives Info about the User\n" +
           ",mcserver IP PORT(Often 25565) - Gives Info about a Minecraft Server\n" +
+          ",hypixelbw IGN - Gives Info about the Hypixel Bedwars Stats of a player\n" +
           ""
       )
       .setFooter("Bot made by Firephoenix#6618");
