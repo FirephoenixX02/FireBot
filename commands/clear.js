@@ -13,7 +13,7 @@ module.exports = {
     } else if (amount <= 1 || amount > 100) {
       return msg.reply("you need to input a number between 1 and 99.");
     }
-    if (userMember.hasPermission("ADMINISTRATOR")) {
+    if (msg.member.roles.cache.some(r => r.name == "Admin") || msg.member.roles.cache.some(r => r.name == "I-Admin") || msg.member.roles.cache.some(r => r.name == "Administrator") || msg.member.roles.cache.some(r => r.name == "Developer")) {
       msg.channel.bulkDelete(amount, true).catch((err) => {
         console.error(err);
         msg.channel.send(
