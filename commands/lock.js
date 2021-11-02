@@ -6,7 +6,7 @@ module.exports = {
     const role = msg.guild.roles.cache.find((r) => r.name === "@everyone");
     let channel =
       msg.mentions.channels.first() ||
-      msg.guild.channels.cache.get(msg.args[0]);
+      msg.guild.channels.cache.get(args[0]);
 
     if (!channel) {
       channel = msg.channel;
@@ -16,7 +16,7 @@ module.exports = {
       return msg.channel.send("This channel has already been locked!");
     }
 
-    if (msg.member.roles.cache.some(r => r.name == "Administrator") || msg.member.roles.cache.some(r => r.name == "Admin") || msg.member.roles.cache.some(r => r.name == "I-Admin")) {
+    if (msg.member.roles.cache.some(r => r.name == "Administrator") || msg.member.roles.cache.some(r => r.name == "Admin") || msg.member.roles.cache.some(r => r.name == "I-Admin") || msg.member.roles.cache.some(r => r.name == "Developer")) {
 
     await channel
       .updateOverwrite(msg.guild.id, { SEND_MESSAGES: false })
