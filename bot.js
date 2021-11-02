@@ -34,7 +34,7 @@ client.on("message", (msg) => {
     client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
 
   try {
-    if (command) command.execute(msg, args);
+    if (command) command.execute(msg, args, client);
   } catch (err) {
     msg.reply("There was an error executing the command!");
     console.log(err);

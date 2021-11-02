@@ -22,6 +22,7 @@ module.exports = {
           ",mcserver IP PORT(Often 25565) - Gives Info about a Minecraft Server\n" +
           ",hypixelbw IGN - Gives Info about the Hypixel Bedwars Stats of a player\n" +
           ",math QUESTION - Calculates a Math equation for a question\n" +
+          ",bugreport Whats not working(example: help command is not working...) - Report a bug\n" +
           ""
       )
       .setFooter("Bot made by Firephoenix#6618");
