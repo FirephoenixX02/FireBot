@@ -20,7 +20,7 @@ module.exports = {
             .setThumbnail(msg.author.displayAvatarURL({ dynamic: true}))
             .setTimestamp();
 
-        owner.send(report)
+        owner.send(report) && msg.reply("Your Report has been sent!")
     },
   };
   

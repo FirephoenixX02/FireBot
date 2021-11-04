@@ -9,6 +9,6 @@ module.exports = {
         "You need to be in a Voice Channel to use this command!"
       );
     await voiceChannel.leave();
-    await msg.channel.send("Leaving Channel :stop_sign:");
+    await msg.channel.send("Leaving Voice Channel :stop_sign:");
   },
 };

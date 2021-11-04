@@ -9,7 +9,7 @@ module.exports = {
       .setDescription(
         ",clear Number - Deletes a number of messages in a channel \n" +
           ",coinflip - Flips a coin \n" +
-          ",dice - Rolls a dice \n" +
+          ",dice NUMBER - Rolls a dice with the amount of faces you want \n" +
           ",help - Displays this menu \n" +
           ",invites - Shows how many new user you invited to the server\n" +
           ",news - Gives you the Announcement Role\n" +
