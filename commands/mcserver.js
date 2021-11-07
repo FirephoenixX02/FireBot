@@ -32,7 +32,7 @@ module.exports = {
               value: response.version,
             }
           )
-          .setFooter("Mc Server Util by Firephoenix#6618");
+          .setFooter("Mc Server Util by NieGestorben#6618");
 
         msg.channel.send(embed);
       })

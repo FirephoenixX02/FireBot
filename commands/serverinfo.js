@@ -18,7 +18,7 @@ module.exports = {
         { name: "Members", value: memberCount },
         { name: "AFK Timeout", value: afkTimeout / 60 + "m" }
       )
-      .setFooter("Bot made by Firephoenix#6618");
+      .setFooter("Bot made by NieGestorben#6618");
 
     msg.channel.send(embed);
   },

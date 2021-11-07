@@ -25,7 +25,7 @@ module.exports = {
           ",bugreport Whats not working(example: help command is not working...) - Report a bug\n" +
           ""
       )
-      .setFooter("Bot made by Firephoenix#6618");
+      .setFooter("Bot made by NieGestorben#6618");
 
     msg.channel.send(Embed);
   },

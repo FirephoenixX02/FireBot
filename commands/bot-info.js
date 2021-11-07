@@ -10,7 +10,7 @@ module.exports = {
       .addFields(
         { name: "Name", value: "FireBot" },
         { name: "Version", value: "1.4" },
-        { name: "Developer", value: "Firephoenix#6618" },
+        { name: "Developer", value: "NieGestorben#6618" },
         { name: "Creation Date", value: "05.06.2021" },
         { name: "Tag", value: "Fire Bot#1667" },
         {
@@ -20,7 +20,7 @@ module.exports = {
         { name: "Prefix", value: "," },
         { name: "Time since last restart", value: Math.round(`${process.uptime().toFixed(2)}` / 60) + "m" }
       )
-      .setFooter("Bot made by Firephoenix#6618");
+      .setFooter("Bot made by NieGestorben#6618");
 
     msg.channel.send(embed);
   },
