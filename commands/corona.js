@@ -8,7 +8,7 @@ module.exports = {
     if (!args.length) {
       return msg.reply("Please specify a Country");
     }
-    if (!args.join(" ") === "global") {
+    if (!args.join(" ") == "global") {
       const data = await api.all(); //Global Cases
       const embed = new Discord.MessageEmbed()
         .setTitle("Global Cases")
