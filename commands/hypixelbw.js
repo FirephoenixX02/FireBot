@@ -11,7 +11,6 @@ module.exports = {
     const apiKey = process.env.HYPIXEL_API;
 
     const playerName = args.join(" ");
-    const playerUUID = "b0516eea-b4c1-4e41-bc1c-c188c94fe064";
 
     if (!args.length) return msg.channel.send("Please enter a player name!");
 
