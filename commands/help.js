@@ -23,6 +23,7 @@ module.exports = {
           ",hypixelbw IGN - Gives Info about the Hypixel Bedwars Stats of a player\n" +
           ",math QUESTION - Calculates a Math equation for a question\n" +
           ",bugreport Whats not working(example: help command is not working...) - Report a bug\n" +
+          ",gitstatus - Get the status of the git repository\n" +
           ""
       )
       .setFooter("Bot made by NieGestorben#6618");
