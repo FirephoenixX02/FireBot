@@ -6,7 +6,6 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setColor("RED")
       .setTitle(`FireBot Info`)
-      .setDescription("FireBot Info")
       .addFields(
         { name: "Name", value: "FireBot" },
         { name: "Version", value: "1.4" },
