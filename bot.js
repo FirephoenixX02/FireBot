@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 const BOT_PREFIX = ",";
 
 client.on("ready", () => {
-  console.log("Fire Bot is ready! ");
+  console.log("Fire Bot is ready...");
   client.user.setStatus("online");
   client.user.setActivity("FireClient", { type: "PLAYING" });
 });

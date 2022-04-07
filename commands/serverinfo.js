@@ -5,7 +5,17 @@ module.exports = {
     const Discord = require("discord.js");
     const { guild } = msg;
 
-    const { name, region, memberCount, afkTimeout } = guild;
+    const {
+      name,
+      maximumMembers,
+      memberCount,
+      afkTimeout,
+      partnered,
+      preferredLocale,
+      premiumSubscriptionCount,
+      verified,
+      available,
+    } = guild;
     const icon = guild.iconURL();
 
     const embed = new Discord.MessageEmbed()
@@ -14,8 +24,13 @@ module.exports = {
       .setThumbnail(icon)
       .setDescription("Server Info")
       .addFields(
-        { name: "Region", value: region },
+        { name: "Max Members", value: maximumMembers },
         { name: "Members", value: memberCount },
+        { name: "Partnered", value: partnered },
+        { name: "Default Language", value: preferredLocale },
+        { name: "Boosts", value: premiumSubscriptionCount },
+        { name: "Verified", value: verified },
+        { name: "Online", value: available },
         { name: "AFK Timeout", value: afkTimeout / 60 + "m" }
       )
       .setFooter("Bot made by NieGestorben#6618");
