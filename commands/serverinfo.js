@@ -24,17 +24,17 @@ module.exports = {
       .setThumbnail(icon)
       .setDescription("Server Info")
       .addFields(
-        { name: "Max Members", value: maximumMembers },
-        { name: "Members", value: memberCount },
-        { name: "Partnered", value: partnered },
+        { name: "Max Members", value: JSON.stringify(maximumMembers) },
+        { name: "Members", value: JSON.stringify(memberCount) },
+        { name: "Partnered", value: JSON.stringify(partnered) },
         { name: "Default Language", value: preferredLocale },
-        { name: "Boosts", value: premiumSubscriptionCount },
-        { name: "Verified", value: verified },
-        { name: "Online", value: available },
+        { name: "Boosts", value: JSON.stringify(premiumSubscriptionCount) },
+        { name: "Verified", value: JSON.stringify(verified) },
+        { name: "Online", value: JSON.stringify(available) },
         { name: "AFK Timeout", value: afkTimeout / 60 + "m" }
       )
-      .setFooter("Bot made by NieGestorben#6618");
+      .setFooter({ text: "Bot made by NieGestorben#6618" });
 
-    msg.channel.send(embed);
+    msg.channel.send({ embeds: [embed] });
   },
 };

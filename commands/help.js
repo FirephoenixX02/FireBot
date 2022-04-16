@@ -3,7 +3,7 @@ module.exports = {
   description: "Shows all Commands",
   execute(msg) {
     const Discord = require("discord.js");
-    const Embed = new Discord.MessageEmbed()
+    const embed = new Discord.MessageEmbed()
       .setColor("RED")
       .setTitle("All Fire Bot Commands")
       .setDescription(
@@ -24,10 +24,11 @@ module.exports = {
           ",math QUESTION - Calculates a Math equation for a question\n" +
           ",bugreport Whats not working(example: help command is not working...) - Report a bug\n" +
           ",gitstatus - Get the status of the git repository\n" +
+          ",imdb MOVIE- Get infos about a specific movie\n" +
           ""
       )
-      .setFooter("Bot made by NieGestorben#6618");
+      .setFooter({ text: "Bot made by NieGestorben#6618" });
 
-    msg.channel.send(Embed);
+    msg.channel.send({ embeds: [embed] });
   },
 };

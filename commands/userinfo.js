@@ -10,7 +10,10 @@ module.exports = {
     const member = guild.members.cache.get(user.id);
 
     const embed = new MessageEmbed()
-      .setAuthor(`User Info for ${user.username}`, user.displayAvatarURL())
+      .setAuthor({
+        name: `User Info for ${user.username}`,
+        iconURL: user.displayAvatarURL({ dynamic: true }),
+      })
       .addFields(
         {
           name: "User Tag",
@@ -18,7 +21,7 @@ module.exports = {
         },
         {
           name: "Is Bot",
-          value: user.bot,
+          value: JSON.stringify(user.bot),
         },
         {
           name: "Nickname",
@@ -34,9 +37,9 @@ module.exports = {
         },
         {
           name: "Role Count",
-          value: member.roles.cache.size - 1,
+          value: JSON.stringify(member.roles.cache.size - 1),
         }
       );
-    channel.send(embed);
+    channel.send({ embeds: [embed] });
   },
 };

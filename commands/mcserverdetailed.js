@@ -21,20 +21,20 @@ module.exports = {
             },
             {
               name: "Online Players",
-              value: response.onlinePlayers,
+              value: JSON.stringify(response.onlinePlayers),
             },
             {
               name: "Max Players",
-              value: response.maxPlayers,
+              value: JSON.stringify(response.maxPlayers),
             },
             {
               name: "Version",
               value: response.version,
             }
           )
-          .setFooter("Mc Server Util by NieGestorben#6618");
+          .setFooter({ text: "Mc Server Util by NieGestorben#6618" });
 
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
       })
       .catch((err) => {
         msg.reply("There was an error pinging the Server. Please try again!");
@@ -49,35 +49,27 @@ module.exports = {
           .addFields(
             {
               name: "Mod Info",
-              value: response.modInfo,
+              value: JSON.stringify(response.modInfo),
             },
             {
               name: "Port",
-              value: response.port,
+              value: JSON.stringify(response.port),
             },
             {
               name: "Protocol Version",
-              value: response.protocolVersion,
+              value: JSON.stringify(response.protocolVersion),
             },
             {
-              name: "Calculate Time",
+              name: "Calculation Time",
               value: response.roundTripLatency + "ms",
             },
             {
-              name: "Raw Response",
-              value: response.rawResponse,
-            },
-            {
-              name: "SRV Record",
-              value: response.srvRecord,
-            },
-            {
               name: "Description",
-              value: response.description,
+              value: response.description.descriptionText,
             }
           )
-          .setFooter("Mc Server Util by NieGestorben#6618");
-        msg.channel.send(embedDetail);
+          .setFooter({ text: "Mc Server Util by NieGestorben#6618" });
+        msg.channel.send({ embeds: [embedDetail] });
       })
       .catch((err) => {
         msg.reply("There was an error pinging the Server. Please try again!");

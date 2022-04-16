@@ -16,11 +16,11 @@ module.exports = {
     }
 
     await channel
-      .updateOverwrite(msg.guild.id, { SEND_MESSAGES: true })
+      .permissionOverwrites.edit(msg.guild.id, { SEND_MESSAGES: true })
       .catch(() => {});
 
     await channel
-      .updateOverwrite(role, { SEND_MESSAGES: true })
+      .permissionOverwrites.edit(role, { SEND_MESSAGES: true })
       .catch(() => {});
 
     msg.channel.send(`${channel} has been unlocked!`);

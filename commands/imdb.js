@@ -17,7 +17,7 @@ module.exports = {
       .setColor("RED")
       .setThumbnail(movie.poster)
       .setDescription(movie.plot)
-      .setFooter(`Rating: ${movie.rating}`)
+      .setFooter({ text: `Rating: ${movie.rating}` })
       .addFields(
         {
           name: "Country",
@@ -25,11 +25,11 @@ module.exports = {
         },
         {
           name: "Languages",
-          value: movie.languages,
+          value: movie.language ? movie.language : "N/A",
         },
         {
           name: "Type",
-          value: movie.type,
+          value: movie.type.toString(),
         },
         {
           name: "Awards",
@@ -37,7 +37,7 @@ module.exports = {
         },
         {
           name: "Release Date ",
-          value: movie.released,
+          value: movie.released.toString(),
         },
         {
           name: "Rated",
@@ -56,6 +56,6 @@ module.exports = {
           value: movie.production,
         }
       );
-    msg.channel.send(embed);
+    msg.channel.send({ embeds: [embed] });
   },
 };

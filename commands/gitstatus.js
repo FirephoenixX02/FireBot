@@ -47,8 +47,8 @@ module.exports = {
               value: json.default_branch,
             },
             {
-                name: "Owner",
-                value: json.owner.login,
+              name: "Owner",
+              value: json.owner.login,
             },
             {
               name: "Language",
@@ -67,8 +67,8 @@ module.exports = {
               value: json.forks,
             },
             {
-                name: "Open Issues",
-                value: json.open_issues_count,
+              name: "Open Issues",
+              value: json.open_issues_count,
             }
           );
         msg.channel.send(embed);

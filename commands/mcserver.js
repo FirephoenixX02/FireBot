@@ -21,20 +21,20 @@ module.exports = {
             },
             {
               name: "Online Players",
-              value: response.onlinePlayers,
+              value: JSON.stringify(response.onlinePlayers),
             },
             {
               name: "Max Players",
-              value: response.maxPlayers,
+              value: JSON.stringify(response.maxPlayers),
             },
             {
               name: "Version",
               value: response.version,
             }
           )
-          .setFooter("Mc Server Util by NieGestorben#6618");
+          .setFooter({ text: "Mc Server Util by NieGestorben#6618" });
 
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
       })
       .catch((err) => {
         msg.reply("There was an error pinging the Server. Please try again!");

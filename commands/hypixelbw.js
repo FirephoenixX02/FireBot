@@ -25,7 +25,10 @@ module.exports = {
           let user = JSON.parse(rawAPI);
           //console.log(`${rawAPI}`);
           if (user.success == false && user.player == null) {
-            msg.channel.send("There was an error requesting the player information!")
+            msg.channel.send(
+              "There was an error requesting the player information!"
+            );
+            msg.channel.send(`Reason: **${user.cause}**`);
           }
           if (user.success == true && user.player != null) {
             let embed = new Discord.MessageEmbed()
@@ -38,43 +41,58 @@ module.exports = {
                 },
                 {
                   name: "Wins",
-                  value: user.player.stats.Bedwars.wins_bedwars,
+                  value: JSON.stringify(user.player.stats.Bedwars.wins_bedwars),
                 },
                 {
                   name: "Losses",
-                  value: user.player.stats.Bedwars.losses_bedwars,
+                  value: JSON.stringify(
+                    user.player.stats.Bedwars.losses_bedwars
+                  ),
                 },
                 {
                   name: "Kills",
-                  value: user.player.stats.Bedwars.kills_bedwars,
+                  value: JSON.stringify(
+                    user.player.stats.Bedwars.kills_bedwars
+                  ),
                 },
                 {
                   name: "Deaths",
-                  value: user.player.stats.Bedwars.deaths_bedwars,
+                  value: JSON.stringify(
+                    user.player.stats.Bedwars.deaths_bedwars
+                  ),
                 },
                 {
                   name: "Final Kills",
-                  value: user.player.stats.Bedwars.final_kills_bedwars,
+                  value: JSON.stringify(
+                    user.player.stats.Bedwars.final_kills_bedwars
+                  ),
                 },
                 {
                   name: "Final Deaths",
-                  value: user.player.stats.Bedwars.final_deaths_bedwars,
+                  value: JSON.stringify(
+                    user.player.stats.Bedwars.final_deaths_bedwars
+                  ),
                 },
                 {
                   name: "Final KDR",
-                  value: Math.round(user.player.stats.Bedwars.final_kills_bedwars/user.player.stats.Bedwars.final_deaths_bedwars * (10 ^ 2)) / (10 ^ 2),
+                  value: JSON.stringify(
+                    Math.round(
+                      (user.player.stats.Bedwars.final_kills_bedwars /
+                        user.player.stats.Bedwars.final_deaths_bedwars) *
+                        (10 ^ 2)
+                    ) /
+                      (10 ^ 2)
+                  ),
                 },
                 {
                   name: "Current Winstreak",
-                  value: user.player.stats.Bedwars.winstreak,
-                },
+                  value: JSON.stringify(user.player.stats.Bedwars.winstreak),
+                }
               );
-            msg.channel.send(embed);
+            msg.channel.send({ embeds: [embed] });
           }
         });
       }
     );
   },
 };
-
-

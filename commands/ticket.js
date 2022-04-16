@@ -1,17 +1,17 @@
 module.exports = {
   name: "ticket",
   description: "Create a Support Ticket",
-  async execute(msg, args, cmd, client, discord) {
+  async execute(msg) {
     const channel = await msg.guild.channels.create(
       `ticket: ${msg.author.tag}`
     );
 
-    channel.updateOverwrite(msg.guild.id, {
-      SEND_MESSAGE: false,
+    channel.permissionOverwrites.edit(msg.guild.id, {
+      SEND_MESSAGES: false,
       VIEW_CHANNEL: false,
     });
-    channel.updateOverwrite(msg.author, {
-      SEND_MESSAGE: true,
+    channel.permissionOverwrites.edit(msg.author, {
+      SEND_MESSAGES: true,
       VIEW_CHANNEL: true,
     });
 
@@ -38,8 +38,8 @@ module.exports = {
     collector.on("collect", (reaction, user) => {
       switch (reaction.emoji.name) {
         case "🔒":
-          channel.updateOverwrite(msg.author, {
-            SEND_MESSAGE: false,
+          channel.permissionOverwrites.edit(msg.author, {
+            SEND_MESSAGES: false,
           });
           break;
         case "🗑️":
