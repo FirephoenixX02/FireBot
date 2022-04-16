@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           name: "Is Bot",
-          value: JSON.stringify(user.bot),
+          value: user.bot.toString(),
         },
         {
           name: "Nickname",
@@ -37,7 +37,7 @@ module.exports = {
         },
         {
           name: "Role Count",
-          value: JSON.stringify(member.roles.cache.size - 1),
+          value: (member.roles.cache.size - 1).toString(),
         }
       );
     channel.send({ embeds: [embed] });

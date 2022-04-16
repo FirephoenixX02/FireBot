@@ -21,11 +21,11 @@ module.exports = {
             },
             {
               name: "Online Players",
-              value: JSON.stringify(response.onlinePlayers),
+              value: response.onlinePlayers.toString(),
             },
             {
               name: "Max Players",
-              value: JSON.stringify(response.maxPlayers),
+              value: response.maxPlayers.toString(),
             },
             {
               name: "Version",
@@ -49,15 +49,15 @@ module.exports = {
           .addFields(
             {
               name: "Mod Info",
-              value: JSON.stringify(response.modInfo),
+              value: response.modInfo ? response.modInfo : "N/A",
             },
             {
               name: "Port",
-              value: JSON.stringify(response.port),
+              value: response.port.toString(),
             },
             {
               name: "Protocol Version",
-              value: JSON.stringify(response.protocolVersion),
+              value: response.protocolVersion.toString(),
             },
             {
               name: "Calculation Time",

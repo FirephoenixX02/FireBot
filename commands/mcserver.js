@@ -21,11 +21,11 @@ module.exports = {
             },
             {
               name: "Online Players",
-              value: JSON.stringify(response.onlinePlayers),
+              value: response.onlinePlayers.toString(),
             },
             {
               name: "Max Players",
-              value: JSON.stringify(response.maxPlayers),
+              value: response.maxPlayers.toString(),
             },
             {
               name: "Version",

@@ -6,7 +6,7 @@ module.exports = {
   description: "Gets the Corona Cases of a Country or the whole World",
   async execute(msg, args) {
     const enabled = false;
-    if (enabled == true) {
+    if (enabled) {
       if (!args.length) {
         return msg.reply("Please specify a Country");
       }

@@ -15,12 +15,12 @@ module.exports = {
       return msg.channel.send("This channel has already been unlocked!");
     }
 
-    await channel
-      .permissionOverwrites.edit(msg.guild.id, { SEND_MESSAGES: true })
+    await channel.permissionOverwrites
+      .edit(msg.guild.id, { SEND_MESSAGES: true })
       .catch(() => {});
 
-    await channel
-      .permissionOverwrites.edit(role, { SEND_MESSAGES: true })
+    await channel.permissionOverwrites
+      .edit(role, { SEND_MESSAGES: true })
       .catch(() => {});
 
     msg.channel.send(`${channel} has been unlocked!`);

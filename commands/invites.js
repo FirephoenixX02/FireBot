@@ -3,9 +3,7 @@ module.exports = {
   description: "Shows how many new Users someone invited.",
   execute(msg) {
     const enabled = false;
-    if (enabled == true) {
-      var userId = msg.author.id;
-
+    if (enabled) {
       var userInvites = msg.guild.invites
         .fetch()
   

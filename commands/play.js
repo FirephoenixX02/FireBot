@@ -19,7 +19,7 @@ module.exports = {
 
     let enabled = false;
 
-    if (enabled == true) {
+    if (enabled) {
       if (!voice_channel)
         return msg.channel.send(
           "You need to be in a Voice Channel to use this command!"

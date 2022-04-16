@@ -41,52 +41,44 @@ module.exports = {
                 },
                 {
                   name: "Wins",
-                  value: JSON.stringify(user.player.stats.Bedwars.wins_bedwars),
+                  value: user.player.stats.Bedwars.wins_bedwars.toString(),
                 },
                 {
                   name: "Losses",
-                  value: JSON.stringify(
-                    user.player.stats.Bedwars.losses_bedwars
-                  ),
+                  value: user.player.stats.Bedwars.losses_bedwars.toString(),
                 },
                 {
                   name: "Kills",
-                  value: JSON.stringify(
-                    user.player.stats.Bedwars.kills_bedwars
-                  ),
+                  value: user.player.stats.Bedwars.kills_bedwars.toString(),
                 },
                 {
                   name: "Deaths",
-                  value: JSON.stringify(
-                    user.player.stats.Bedwars.deaths_bedwars
-                  ),
+                  value: user.player.stats.Bedwars.deaths_bedwars.toString(),
                 },
                 {
                   name: "Final Kills",
-                  value: JSON.stringify(
-                    user.player.stats.Bedwars.final_kills_bedwars
-                  ),
+                  value:
+                    user.player.stats.Bedwars.final_kills_bedwars.toString(),
                 },
                 {
                   name: "Final Deaths",
-                  value: JSON.stringify(
-                    user.player.stats.Bedwars.final_deaths_bedwars
-                  ),
+                  value:
+                    user.player.stats.Bedwars.final_deaths_bedwars.toString(),
                 },
                 {
                   name: "Final KDR",
-                  value: JSON.stringify(
+                  value: (
                     Math.round(
                       (user.player.stats.Bedwars.final_kills_bedwars /
                         user.player.stats.Bedwars.final_deaths_bedwars) *
                         (10 ^ 2)
                     ) /
                       (10 ^ 2)
-                  ),
+                  ).toString(),
                 },
                 {
                   name: "Current Winstreak",
-                  value: JSON.stringify(user.player.stats.Bedwars.winstreak),
+                  value: user.player.stats.Bedwars.winstreak.toString(),
                 }
               );
             msg.channel.send({ embeds: [embed] });

@@ -36,23 +36,23 @@ module.exports = {
           .addFields(
             {
               name: "Name",
-              value: json.name,
+              value: json.name.toString(),
             },
             {
               name: "Description",
-              value: json.description,
+              value: json.description.toString(),
             },
             {
               name: "Main Branch",
-              value: json.default_branch,
+              value: json.default_branch.toString(),
             },
             {
               name: "Owner",
-              value: json.owner.login,
+              value: json.owner.login.toString(),
             },
             {
               name: "Language",
-              value: json.language,
+              value: json.language.toString(),
             },
             {
               name: "Creation Date",
@@ -64,14 +64,14 @@ module.exports = {
             },
             {
               name: "Forks",
-              value: json.forks,
+              value: json.forks.toString(),
             },
             {
               name: "Open Issues",
-              value: json.open_issues_count,
+              value: json.open_issues_count.toString(),
             }
           );
-        msg.channel.send(embed);
+        msg.channel.send({ embeds: [embed] });
       });
     });
   },
