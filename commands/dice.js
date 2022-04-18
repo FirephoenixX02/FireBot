@@ -5,7 +5,8 @@ module.exports = {
     if (!args) {
       msg.channel.send("Please specify a number!");
     } else {
-      msg.reply(JSON.stringify(Math.floor(Math.random() * args[0]) + 1));
+      const solution = Math.floor(Math.random() * args[0]) + 1;
+      msg.channel.send(solution.toString());
     }
   },
 };

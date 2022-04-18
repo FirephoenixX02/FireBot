@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const fs = require("fs");
 const { Client, Intents, Collection } = require("discord.js");
+const { GiveawaysManager } = require("discord-giveaways");
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
@@ -14,6 +15,13 @@ const client = new Client({
   partials: ["CHANNEL", "MESSAGE"],
 });
 client.commands = new Collection();
+client.giveaways = new GiveawaysManager(client, {
+  storage : './resources/giveaways.json',
+  updateCountdownEvery: 5000,
+  embedColor : '#ed4245',
+  reaction : '🎉',
+  botsCanWin: false
+})
 
 const commandFiles = fs
   .readdirSync("./commands")

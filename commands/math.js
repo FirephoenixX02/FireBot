@@ -10,9 +10,10 @@ module.exports = {
 
   async execute(msg, args) {
     try {
+      const solution = math.evaluate(args.join(" "));
       const embed = new Discord.MessageEmbed()
         .addField("Question", args.join(" "))
-        .addField("Solution", JSON.stringify(math.evaluate(args.join(" "))));
+        .addField("Solution", solution.toString());
 
       msg.channel.send({ embeds: [embed] });
     } catch {

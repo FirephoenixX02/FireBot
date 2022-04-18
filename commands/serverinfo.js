@@ -24,13 +24,13 @@ module.exports = {
       .setThumbnail(icon)
       .setDescription("Server Info")
       .addFields(
-        { name: "Max Members", value: JSON.stringify(maximumMembers) },
-        { name: "Members", value: JSON.stringify(memberCount) },
-        { name: "Partnered", value: JSON.stringify(partnered) },
+        { name: "Max Members", value: maximumMembers.toString() },
+        { name: "Members", value: memberCount.toString() },
+        { name: "Partnered", value: partnered.toString() },
         { name: "Default Language", value: preferredLocale },
-        { name: "Boosts", value: JSON.stringify(premiumSubscriptionCount) },
-        { name: "Verified", value: JSON.stringify(verified) },
-        { name: "Online", value: JSON.stringify(available) },
+        { name: "Boosts", value: premiumSubscriptionCount.toString() },
+        { name: "Verified", value: verified.toString() },
+        { name: "Online", value: available.toString() },
         { name: "AFK Timeout", value: afkTimeout / 60 + "m" }
       )
       .setFooter({ text: "Bot made by NieGestorben#6618" });
