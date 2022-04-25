@@ -11,6 +11,7 @@ const client = new Client({
     Intents.FLAGS.GUILD_MESSAGES,
     Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
     Intents.FLAGS.GUILD_VOICE_STATES,
+    Intents.FLAGS.GUILD_PRESENCES,
   ],
   partials: ["CHANNEL", "MESSAGE"],
 });
@@ -91,7 +92,7 @@ client.on("messageUpdate", async (oldMessage) => {
   //Welcome Message
 
   client.on("guildMemberAdd", (member) => {
-    console.log("guildMemberAdd");
+    console.log("Guild Member Add Event fired!");
 
     const message = `Welcome <@${member.id}>!`;
 
