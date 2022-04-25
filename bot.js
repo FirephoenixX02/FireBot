@@ -17,12 +17,12 @@ const client = new Client({
 });
 client.commands = new Collection();
 client.giveaways = new GiveawaysManager(client, {
-  storage : './resources/giveaways.json',
+  storage: "./resources/giveaways.json",
   updateCountdownEvery: 5000,
-  embedColor : '#ed4245',
-  reaction : '🎉',
-  botsCanWin: false
-})
+  embedColor: "#ed4245",
+  reaction: "🎉",
+  botsCanWin: false,
+});
 
 const commandFiles = fs
   .readdirSync("./commands")
@@ -88,19 +88,19 @@ client.on("messageUpdate", async (oldMessage) => {
     );
     channel.send(embed);
   }
+});
 
-  //Welcome Message
+//Welcome Message
 
-  client.on("guildMemberAdd", (member) => {
-    console.log("Guild Member Add Event fired!");
+client.on("guildMemberAdd", (member) => {
+  console.log("Guild Member Add Event fired!");
 
-    const message = `Welcome <@${member.id}>!`;
+  const message = `Welcome <@${member.id}>!`;
 
-    let channel = client.channels.cache.find(
-      (channel) => channel.name.toLowerCase() === "newmember"
-    );
-    channel.send(message);
-  });
+  let channel = client.channels.cache.find(
+    (channel) => channel.name.toLowerCase() === "newmember"
+  );
+  channel.send(message);
 });
 
 client.login(process.env.BOT_TOKEN);
