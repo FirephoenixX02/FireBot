@@ -90,12 +90,12 @@ client.on("messageUpdate", async (oldMessage) => {
 
   //Welcome Message
 
-  client.on("guildMemberAdd", (member, msg) => {
+  client.on("guildMemberAdd", (member) => {
     console.log("guildMemberAdd");
 
     const message = `Welcome <@${member.id}>!`;
 
-    let channel = msg.guild.channels.cache.find(
+    let channel = client.channels.cache.find(
       (channel) => channel.name.toLowerCase() === "newmember"
     );
     channel.send(message);
