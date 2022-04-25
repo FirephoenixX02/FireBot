@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         name: "Cups of Coffee ☕ :  ",
-        value: "3",
+        value: "4",
       }
     );
     msg.channel.send({ embeds: [embed] });

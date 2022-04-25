@@ -90,7 +90,7 @@ client.on("messageUpdate", async (oldMessage) => {
 
   //Welcome Message
 
-  client.on("guildMemberAdd", (member) => {
+  client.on("guildMemberAdd", (member, msg) => {
     console.log("guildMemberAdd");
 
     const message = `Welcome <@${member.id}>!`;
