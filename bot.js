@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const fs = require("fs");
-const { Client, Intents, Collection } = require("discord.js");
+const { Client, Intents, Collection, MessageEmbed } = require("discord.js");
 const { GiveawaysManager } = require("discord-giveaways");
 const client = new Client({
   intents: [
@@ -63,7 +63,7 @@ client.on("messageDelete", (msg) => {
 
   if (msg.mentions.users.first()) {
     if (msg.mentions.users.first().bot) return;
-    const embed = new Discord.MessageEmbed()
+    const embed = new MessageEmbed()
       .setTitle("Ghost Ping")
       .setDescription(
         `${msg.author} ghost pinged ${msg.mentions.users.first()}`
@@ -71,14 +71,14 @@ client.on("messageDelete", (msg) => {
     let channel = msg.guild.channels.cache.find(
       (channel) => channel.name.toLowerCase() === "ghostping"
     );
-    channel.send(embed);
+    channel.send({ embeds: [embed] });
   }
 });
 
 client.on("messageUpdate", async (oldMessage) => {
   if (oldMessage.mentions.users.first()) {
     if (oldMessage.mentions.users.first().bot) return;
-    const embed = new Discord.MessageEmbed()
+    const embed = new MessageEmbed()
       .setTitle("Ghost Ping")
       .setDescription(
         `${oldMessage.author} ghost pinged ${oldMessage.mentions.users.first()}`
@@ -86,7 +86,7 @@ client.on("messageUpdate", async (oldMessage) => {
     let channel = oldMessage.guild.channels.cache.find(
       (channel) => channel.name.toLowerCase() === "ghostping"
     );
-    channel.send(embed);
+    channel.send({ embeds: [embed] });
   }
 });
 
