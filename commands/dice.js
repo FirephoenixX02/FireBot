@@ -4,7 +4,7 @@ module.exports = {
   name: "dice",
   description: "Rolls a Dice",
   execute(msg, args) {
-    const solution = Math.floor(Math.random() * 6 + 1);
+    const solution = Math.floor(Math.random() * 6) + 1;
     if (!args) {
       msg.channel.send("Please specify a number!");
     } else {
