@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports = {
   name: "clear",
   description: "Clear messages from the channel.",
@@ -25,6 +27,10 @@ module.exports = {
           "there was an error trying to delete messages in this channel!"
         );
       });
+      const embed = new Discord.MessageEmbed()
+        .setDescription(`Deleted ${amount} messages.`)
+        .setColor("RED");
+      msg.channel.send({ embeds: [embed] });
     }
   },
 };

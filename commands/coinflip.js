@@ -1,8 +1,19 @@
+const Discord = require("discord.js");
+
 module.exports = {
   name: "coinflip",
   description: "Flips a Coin",
   execute(msg) {
-    const solution = Math.floor(Math.random() * 2) + 1
-    msg.channel.send(solution.toString() + " (1 = Heads, 2 = Tails)");
+    let solution = undefined;
+    const number = Math.floor(Math.random() * 2) + 1;
+    if (number === 1) {
+      solution = "Heads"
+    } else {
+      solution = "Tails"
+    }
+    const embed = new Discord.MessageEmbed().setDescription(
+      "Flipped a coin, you got " + solution.toString()
+    );
+    msg.channel.send({ embeds: [embed] });
   },
 };

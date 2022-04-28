@@ -1,12 +1,17 @@
+const Discord = require("discord.js");
+
 module.exports = {
   name: "dice",
   description: "Rolls a Dice",
   execute(msg, args) {
+    const solution = Math.floor(Math.random() * 6 + 1);
     if (!args) {
       msg.channel.send("Please specify a number!");
     } else {
-      const solution = Math.floor(Math.random() * args[0]) + 1;
-      msg.channel.send(solution.toString());
+      const embed = new Discord.MessageEmbed().setDescription(
+        solution.toString()
+      );
+      msg.channel.send({ embeds: [embed] });
     }
   },
 };
