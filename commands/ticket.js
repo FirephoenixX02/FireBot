@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports = {
   name: "ticket",
   description: "Create a Support Ticket",
@@ -15,39 +17,63 @@ module.exports = {
       VIEW_CHANNEL: true,
     });
 
-    const reactionMessage = await channel.send(
-      "Thank you for contacting our support team!"
-    );
-
     try {
-      await reactionMessage.react("🔒");
-      await reactionMessage.react("🗑️");
-    } catch (err) {
-      channel.send("Error Sending Emojis");
-      throw err;
-    }
+      const buttons = new Discord.MessageActionRow().addComponents(
+        new Discord.MessageButton()
+          .setCustomId("Lock")
+          .setLabel("Lock")
+          .setStyle(1)
+          .setEmoji("🔒"),
+        new Discord.MessageButton()
+          .setCustomId("Unlock")
+          .setLabel("Unlock")
+          .setStyle(3)
+          .setEmoji("🔓"),
+        new Discord.MessageButton()
+          .setCustomId("Delete")
+          .setLabel("Delete")
+          .setStyle(4)
+          .setEmoji("🗑️")
+      );
 
-    const collector = reactionMessage.createReactionCollector(
-      (reaction, user) =>
-        msg.guild.members.cache
-          .find((member) => member.id === user.id)
-          .hasPermission("ADMINISTRATOR"),
-      { dispose: true }
-    );
+      const buttonMessage = await channel.send({
+        content: "Thank you for contacting our support team!",
+        components: [buttons],
+      });
 
-    collector.on("collect", (reaction, user) => {
-      switch (reaction.emoji.name) {
-        case "🔒":
+      const collector = buttonMessage.createMessageComponentCollector({
+        componentType: "BUTTON",
+      });
+
+      collector.on("collect", async (i) => {
+        if (i.customId === "Lock") {
           channel.permissionOverwrites.edit(msg.author, {
             SEND_MESSAGES: false,
           });
-          break;
-        case "🗑️":
-          channel.send("This channel will be deleted in 5s!");
-          setTimeout(() => channel.delete(), 5000);
-          break;
-      }
-    });
+          i.deferUpdate();
+        }
+        if (i.customId === "Delete") {
+          i.deferUpdate();
+          channel.send("This channel will be deleted in 2s!");
+          setTimeout(() => channel.delete(), 2000);
+        }
+        if (i.customId === "Unlock") {
+          channel.permissionOverwrites.edit(msg.author, {
+            SEND_MESSAGES: true,
+          });
+          i.deferUpdate();
+        }
+      });
+
+      //await reactionMessage.react("🔒");
+      //await reactionMessage.react("🗑️");
+    } catch (err) {
+      channel.send(
+        "There was an error adding the Buttons to the Message or responding to a interaction!"
+      );
+      throw err;
+    }
+
     msg.channel
       .send(`We will be right with you! ${channel}`)
       .then((message) => {
