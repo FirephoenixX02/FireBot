@@ -30,7 +30,9 @@ module.exports = {
       const embed = new Discord.MessageEmbed()
         .setDescription(`Deleted ${amount} messages.`)
         .setColor("RED");
-      msg.channel.send({ embeds: [embed] });
+      msg.channel.send({ embeds: [embed] }).then((msg) => {
+        setTimeout(() => msg.delete(), 5000);
+      })
     }
   },
 };
