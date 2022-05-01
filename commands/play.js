@@ -9,7 +9,7 @@ module.exports = {
   name: "play",
   aliases: ["skip", "stop", "queue", "loop"],
   cooldown: 0,
-  description: "Advanced music bot",
+  description: "Plays Music",
   async execute(msg) {
     const BOT_PREFIX = ",";
     const args = msg.content.slice(BOT_PREFIX.length).trim().split(/ +/);

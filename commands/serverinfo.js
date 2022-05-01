@@ -1,6 +1,6 @@
 module.exports = {
   name: "serverinfo",
-  description: "Gives Info about the Server our on.",
+  description: "Gives Info about the Server your on.",
   execute(msg) {
     const Discord = require("discord.js");
     const { guild } = msg;

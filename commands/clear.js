@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "clear",
-  description: "Clear messages from the channel.",
+  description: "Deletes a number of messages in a channel",
   args: true,
   usage: "<number greater than 0, less than 100>",
   async execute(msg, args) {

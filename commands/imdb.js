@@ -4,7 +4,7 @@ const imdb = require("imdb-api");
 
 module.exports = {
   name: "imdb",
-  description: "Gives info about a movie via IMDb(Internet Movie Database)",
+  description: "Gives info about a movie via OMDb(The Open Movie Database)",
   async execute(msg, args) {
     if (!args.length) return msg.channel.send("Please enter a movie name!");
 

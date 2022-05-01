@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: "coinflip",
-  description: "Flips a Coin",
+  description: "Flips a coin",
   execute(msg) {
     let solution = undefined;
     const number = Math.floor(Math.random() * 2) + 1;

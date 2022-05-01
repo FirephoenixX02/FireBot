@@ -6,7 +6,7 @@ const https = require("https");
 
 module.exports = {
   name: "gitstatus",
-  description: "Gets the status of the git repo",
+  description: "Get the status of the git repository",
   async execute(msg) {
     var username = "FirephoenixX02";
 

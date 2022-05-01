@@ -1,6 +1,6 @@
 module.exports = {
   name: "botinfo",
-  description: "Gives Info about Firebot.",
+  description: "Gives you Information about the Bot",
   execute(msg) {
     const Discord = require("discord.js");
     const embed = new Discord.MessageEmbed()

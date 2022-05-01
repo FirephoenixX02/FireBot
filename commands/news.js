@@ -1,6 +1,6 @@
 module.exports = {
   name: "news",
-  description: "Gives you to the Announcement Ping Role ",
+  description: "Gives you the Announcement Role",
   execute(msg) {
     const role = msg.guild.roles.cache.find(
       (role) => role.name === "Announcement-Ping"

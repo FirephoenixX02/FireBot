@@ -6,7 +6,7 @@ const https = require("https");
 
 module.exports = {
   name: "hypixelbw",
-  description: "Shows Hypixel Stats from a Player",
+  description: "Shows Hypixel BW Stats from a Player",
   async execute(msg, args) {
     const apiKey = process.env.HYPIXEL_API;
 

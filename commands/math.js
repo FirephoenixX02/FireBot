@@ -6,7 +6,7 @@ const math = require("mathjs");
 
 module.exports = {
   name: "math",
-  description: "calculate something",
+  description: "Calculates a Math equation",
 
   async execute(msg, args) {
     try {

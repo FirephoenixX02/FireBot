@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "userinfo",
-  description: "Shows Info about the user",
+  description: "Gives Info about a specific User",
   execute(msg) {
     const { guild, channel } = msg;
 

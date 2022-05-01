@@ -1,6 +1,6 @@
 module.exports = {
   name: "invites",
-  description: "Shows how many new Users someone invited.",
+  description: "Shows how many new user you invited to the server",
   execute(msg) {
     const enabled = false;
     if (enabled) {

@@ -10,7 +10,7 @@ let fs = require("fs");
 
 module.exports = {
   name: "airhorn",
-  description: "Plays Airhorn sound in Voice Channel",
+  description: "Plays an Airhorn Sound in the voice channel your in",
   async execute(msg) {
     const voiceChannel = msg.member.voice.channel;
     const path = "./resources/audio.mp3";
