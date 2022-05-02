@@ -9,7 +9,6 @@ module.exports = {
     const { commands } = client;
 
     if (!args.length) {
-      data.push(`List of all commands: \n`);
       data.push(commands.map((c) => c.name).join(`\n${BOT_PREFIX}`)
       );
       data.push(
