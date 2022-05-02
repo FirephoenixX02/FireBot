@@ -8,7 +8,7 @@ module.exports = {
       .setTitle(`FireBot Info`)
       .addFields(
         { name: "Name", value: "FireBot" },
-        { name: "Version", value: "1.5" },
+        { name: "Version", value: "1.6" },
         { name: "Developer", value: "NieGestorben#6618" },
         { name: "Creation Date", value: "05.06.2021" },
         { name: "Tag", value: "Fire Bot#1667" },
