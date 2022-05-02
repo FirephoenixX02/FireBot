@@ -64,9 +64,6 @@ module.exports = {
           i.deferUpdate();
         }
       });
-
-      //await reactionMessage.react("🔒");
-      //await reactionMessage.react("🗑️");
     } catch (err) {
       channel.send(
         "There was an error adding the Buttons to the Message or responding to a interaction!"

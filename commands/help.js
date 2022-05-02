@@ -54,7 +54,5 @@ module.exports = {
       .setFooter({ text: "Bot made by NieGestorben#6618" });
 
     msg.channel.send({ embeds: [embed] });
-
-    return;
   },
 };

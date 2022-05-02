@@ -23,7 +23,6 @@ module.exports = {
         body += chunk.toString("utf8");
       });
       response.on("end", () => {
-        //console.log("Body: ", body);
 
         let json = JSON.parse(body);
 
