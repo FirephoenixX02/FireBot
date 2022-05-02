@@ -12,9 +12,9 @@ module.exports = {
       data.push(commands.map((c) => c.name).join(`\n${BOT_PREFIX}`)
       );
       data.push(
-        "\nTo get more info about a specific command, do " +
+        "\n\n**To get more info about a specific command, do " +
           BOT_PREFIX +
-          "help [command name]"
+          "help [command name]**"
       );
       const embed = new Discord.MessageEmbed()
         .setColor("RED")
