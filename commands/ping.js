@@ -1,11 +1,11 @@
 module.exports = {
   name: "ping",
   description: "Command used for testing the Calculation time of the bot",
-  execute(msg) {
+  execute(msg, args, client) {
     msg.channel.send("Calculating Ping...").then((resultMessage) => {
-      const ping = resultMessage.createdTimestamp - msg.createdTimestamp;
+      const ping = client.ws.ping;
 
-      resultMessage.edit(`🏓 | Firebot's Calculation time is ${ping}ms.`);
+      resultMessage.edit(`🏓 | Firebot's Websocket ping is ${ping}ms.`);
     });
   },
 };
