@@ -14,7 +14,7 @@ module.exports = {
         { name: "Tag", value: "Fire Bot#1667" },
         {
           name: "Main/Home Server",
-          value: "[FireClient](https://discord.com/invite/MBzkfcQFvJ)",
+          value: "[FireBot Community](https://discord.com/invite/PATbnPp4xa)",
         },
         { name: "Prefix", value: "," },
         {
