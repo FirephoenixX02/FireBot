@@ -96,8 +96,8 @@ client.on("messageUpdate", async (oldMessage) => {
 client.on("guildMemberAdd", (member) => {
 
   const message = `Welcome <@${member.id}>!`;
-
-  let channel = client.channels.cache.find(
+  
+  let channel = member.guild.channels.cache.find(
     (channel) => channel.name.toLowerCase() === "newmember"
   );
   channel.send(message);
