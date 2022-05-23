@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FireBot Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css"
+      integrity="sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
+    <h1 class="title">FireBot Dashboard</h1>
+    <section class="main-content">
+      <div class="container">
+        <h1 class="text-center">Statistics</h1>
+        <br>
+        <div class="row">
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">RAM</p>
+                <h2>$$ram$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-memory"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">CPU</p>
+                <h2>$$cpu$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-microchip"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">Cores</p>
+                <h2>$$cores$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-microchip"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">Guilds</p>
+                <h2>$$guilds$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-server"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">Users</p>
+                <h2>$$users$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">Version</p>
+                <h2>$$version$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-code-branch"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">OS</p>
+                <h2>$$os$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-brands fa-linux"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">Free RAM</p>
+                <h2>$$freemem$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-memory"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">API Ping</p>
+                <h2>$$apiping$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-signal"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 offset">
+            <div class="stat-card">
+              <div class="stat-card__content">
+                <p class="text-uppercase mb-1 text-muted">Uptime</p>
+                <h2>$$uptime$$</h2>
+              </div>
+              <div class="stat-card__icon stat-card__icon--success">
+                <div class="stat-card__icon-circle">
+                  <i class="fa-solid fa-timer"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

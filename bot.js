@@ -1,8 +1,23 @@
 require("dotenv").config();
 
+//Web Dashboard Variables
+
+const express = require("express");
+const app = express();
+const os = require("os");
+
+// Web Dashboard Settings
+
+app.enable("trust proxy"); // If IP is ::1 its localhost
+app.set("etag", false); // Disable Cache
+app.use(express.static(__dirname + "/website"));
+
+// Bot Variables
+
 const fs = require("fs");
 const { Client, Intents, Collection, MessageEmbed } = require("discord.js");
 const { GiveawaysManager } = require("discord-giveaways");
+const { addAbortSignal } = require("stream");
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
@@ -94,13 +109,57 @@ client.on("messageUpdate", async (oldMessage) => {
 //Welcome Message
 
 client.on("guildMemberAdd", (member) => {
-
   const message = `Welcome <@${member.id}>!`;
-  
+
   let channel = member.guild.channels.cache.find(
     (channel) => channel.name.toLowerCase() === "newmember"
   );
   channel.send(message);
 });
 
+// Bot Login
 client.login(process.env.BOT_TOKEN);
+
+// Web Dashboard Access Log
+
+app.use((req, res, next) => {
+  console.log(
+    `Web Dashboard was accessed via ${req.method} on ${req.url}. Status Code: ${req.statusCode}, IP: ${req.ip}`
+  );
+  next();
+});
+
+// Web Dashboard Main Sites
+
+app.get("/", async (req, res) => {
+  const ram = Math.round(os.totalmem / (1000 * 1000 * 1000)) + "GB";
+  const cores = os.cpus().length;
+  const cpu = os.cpus()[0].model;
+  const guilds = client.guilds.cache.size;
+  const users = client.users.cache.size;
+  const version = 1.6;
+  const system = os.platform;
+  const freemem = Math.round(os.freemem / (1000 * 1000 * 1000)) + "GB";
+  const discordapiping = client.ws.ping;
+  const uptime = Math.round(`${process.uptime().toFixed(2)}` / 60) + "m";
+
+  let file = fs.readFileSync("./website/html/index.html", { encoding: "utf8" });
+  file = file.replace("$$ram$$", ram);
+  file = file.replace("$$cores$$", cores);
+  file = file.replace("$$cpu$$", cpu);
+  file = file.replace("$$guilds$$", guilds);
+  file = file.replace("$$users$$", users);
+  file = file.replace("$$version$$", version);
+  file = file.replace("$$os$$", system);
+  file = file.replace("$$freemem$$", freemem);
+  file = file.replace("$$apiping$$", discordapiping)
+  file = file.replace("$$uptime$$", uptime) 
+
+  res.send(file);
+  //res.sendFile(`./website/html/index.html`, { root: __dirname });
+});
+
+// Web Dashboard Start
+app.listen(process.env.PORT || 3000, () =>
+  console.log(`Web Dashboard running on port ${process.env.PORT || 3000}`)
+);
