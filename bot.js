@@ -11,6 +11,7 @@ const os = require("os");
 app.enable("trust proxy"); // If IP is ::1 its localhost
 app.set("etag", false); // Disable Cache
 app.use(express.static(__dirname + "/website"));
+app.disable("x-powered-by");
 
 // Bot Variables
 
