@@ -133,14 +133,14 @@ app.use((req, res, next) => {
 // Web Dashboard Main Sites
 
 app.get("/", async (req, res) => {
-  const ram = Math.round(os.totalmem / (1000 * 1000 * 1000)) + "GB";
+  const ram = Math.round(os.totalmem / (1024 * 1024 * 1024)) + "GB";
   const cores = os.cpus().length;
   const cpu = os.cpus()[0].model;
   const guilds = client.guilds.cache.size;
   const users = client.users.cache.size;
   const version = 1.6;
   const system = os.platform;
-  const freemem = Math.round(os.freemem / (1000 * 1000 * 1000)) + "GB";
+  const freemem = Math.round(os.freemem / (1024 * 1024 * 1024)) + "GB";
   const discordapiping = client.ws.ping;
   const uptime = Math.round(`${process.uptime().toFixed(2)}` / 60) + "m";
 
