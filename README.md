@@ -2,7 +2,7 @@
 A Discord Bot written with Discord.js for my Discord Server 
 
 # Dependencys
-As of April 16, 2022 FireBot requires Discord.js V13 and node.js V.16.6.0 or later (V17.9.0 is recommended)
+As of April 16, 2022 FireBot requires Discord.js V13 and node.js V.16.6.0 or later (V18.3.0 is recommended)
 
 # Commiting
 
