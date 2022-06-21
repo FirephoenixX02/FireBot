@@ -4,9 +4,9 @@ module.exports = {
   execute(msg) {
     const enabled = false;
     if (enabled) {
-      var userInvites = msg.guild.invites.fetch();
+      let userInvites = msg.guild.invites.fetch();
 
-      var useAmount = userInvites.uses;
+      let useAmount = userInvites.uses;
 
       if (useAmount === undefined) {
         msg.reply(`${msg.author.username} has 0 invites`);

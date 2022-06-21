@@ -8,9 +8,9 @@ module.exports = {
   name: "gitstatus",
   description: "Get the status of the git repository",
   async execute(msg) {
-    var username = "FirephoenixX02";
+    const username = "FirephoenixX02";
 
-    var options = {
+    let options = {
       host: "api.github.com",
       path: "/repos/" + username + "/FireBot",
       method: "GET",
@@ -18,7 +18,7 @@ module.exports = {
     };
 
     https.get(options, function (response) {
-      var body = "";
+      let body = "";
       response.on(`data`, (chunk) => {
         body += chunk.toString("utf8");
       });

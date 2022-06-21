@@ -26,14 +26,14 @@ module.exports = {
         response.on(`end`, () => {
           let user = JSON.parse(rawAPI);
 
-          if (user.success == false && user.player == null) {
+          if (!user.success && user.player == null) {
             msg.channel.send(
               "There was an error requesting the player information!"
             );
             msg.channel.send(`Reason: **${user.cause}**`);
           }
 
-          if (user.success == true && user.player != null) {
+          if (user.success && user.player != null) {
             let embed = new Discord.MessageEmbed()
               .setTitle(playerName)
               .setDescription("Bedwars Stats")
