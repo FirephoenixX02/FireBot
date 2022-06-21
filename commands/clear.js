@@ -8,7 +8,6 @@ module.exports = {
   async execute(msg, args) {
     const amount = parseInt(args[0]);
     const user = msg.author;
-    const userMember = await msg.guild.members.fetch(user);
 
     if (isNaN(amount)) {
       return msg.reply("that doesn't seem to be a valid number.");
