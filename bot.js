@@ -1,3 +1,12 @@
+// Fixme's and Todo's are now directly in the code not as issues anymore so i don't have to look at
+// the issues section anymore.
+// Bug reports are still handled in the issues section.
+
+/* 
+  TODO:
+- Major UI Polish
+*/
+
 require("dotenv").config();
 
 //Web Dashboard Variables
@@ -19,6 +28,9 @@ const fs = require("fs");
 const { Client, Intents, Collection, MessageEmbed } = require("discord.js");
 const { GiveawaysManager } = require("discord-giveaways");
 const { addAbortSignal } = require("stream");
+
+//Intents needed for accessing specific information's like Rich Presence or Invite Count
+
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
@@ -32,6 +44,7 @@ const client = new Client({
   ],
   partials: ["CHANNEL", "MESSAGE"],
 });
+
 client.commands = new Collection();
 client.giveaways = new GiveawaysManager(client, {
   storage: "./resources/giveaways.json",
@@ -63,6 +76,7 @@ client.on("messageCreate", (msg) => {
 
   const args = msg.content.slice(BOT_PREFIX.length).trim().split(/ +/);
   const cmd = args.shift().toLowerCase();
+
   const command =
     client.commands.get(cmd) ||
     client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
@@ -80,14 +94,17 @@ client.on("messageDelete", (msg) => {
 
   if (msg.mentions.users.first()) {
     if (msg.mentions.users.first().bot) return;
+
     const embed = new MessageEmbed()
       .setTitle("Ghost Ping")
       .setDescription(
         `${msg.author} ghost pinged ${msg.mentions.users.first()}`
       );
+
     let channel = msg.guild.channels.cache.find(
       (channel) => channel.name.toLowerCase() === "ghostping"
     );
+
     channel.send({ embeds: [embed] });
   }
 });
@@ -95,14 +112,17 @@ client.on("messageDelete", (msg) => {
 client.on("messageUpdate", async (oldMessage) => {
   if (oldMessage.mentions.users.first()) {
     if (oldMessage.mentions.users.first().bot) return;
+
     const embed = new MessageEmbed()
       .setTitle("Ghost Ping")
       .setDescription(
         `${oldMessage.author} ghost pinged ${oldMessage.mentions.users.first()}`
       );
+
     let channel = oldMessage.guild.channels.cache.find(
       (channel) => channel.name.toLowerCase() === "ghostping"
     );
+
     channel.send({ embeds: [embed] });
   }
 });
@@ -153,14 +173,14 @@ app.get("/", async (req, res) => {
   file = file.replace("$$version$$", version);
   file = file.replace("$$os$$", system);
   file = file.replace("$$freemem$$", freemem);
-  file = file.replace("$$apiping$$", discordapiping)
-  file = file.replace("$$uptime$$", uptime) 
+  file = file.replace("$$apiping$$", discordapiping);
+  file = file.replace("$$uptime$$", uptime);
 
   res.send(file);
-  //res.sendFile(`./website/html/index.html`, { root: __dirname });
 });
 
 // Web Dashboard Start
+
 app.listen(process.env.PORT || 3000, () =>
-  console.log(`Web Dashboard running on port ${process.env.PORT || 3000}`)
+  console.log(`Web Dashboard is now running on port ${process.env.PORT || 3000}`)
 );

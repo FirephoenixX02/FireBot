@@ -14,8 +14,9 @@ module.exports = {
           BOT_PREFIX +
           "help [command name]**\n\n"
       );
-      data.push(commands.map((c) => c.name).join(`\n${BOT_PREFIX}`)
-      );
+
+      data.push(commands.map((c) => c.name).join(`\n${BOT_PREFIX}`));
+
       const embed = new Discord.MessageEmbed()
         .setColor("RED")
         .setTitle("All Fire Bot Commands")
@@ -43,6 +44,7 @@ module.exports = {
     if (cmd.description) {
       data.push(`Description: ${cmd.description}`);
     }
+
     if (cmd.aliases) {
       data.push(`Aliases: ${cmd.aliases})`);
     }

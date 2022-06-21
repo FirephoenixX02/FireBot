@@ -12,6 +12,7 @@ module.exports = {
       SEND_MESSAGES: false,
       VIEW_CHANNEL: false,
     });
+
     channel.permissionOverwrites.edit(msg.author, {
       SEND_MESSAGES: true,
       VIEW_CHANNEL: true,
@@ -50,6 +51,7 @@ module.exports = {
           channel.permissionOverwrites.edit(msg.author, {
             SEND_MESSAGES: false,
           });
+
           i.deferUpdate();
         }
         if (i.customId === "Delete") {
@@ -61,6 +63,7 @@ module.exports = {
           channel.permissionOverwrites.edit(msg.author, {
             SEND_MESSAGES: true,
           });
+
           i.deferUpdate();
         }
       });
@@ -68,6 +71,7 @@ module.exports = {
       channel.send(
         "There was an error adding the Buttons to the Message or responding to a interaction!"
       );
+
       throw err;
     }
 

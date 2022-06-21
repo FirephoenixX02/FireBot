@@ -6,14 +6,17 @@ module.exports = {
   execute(msg) {
     let solution = undefined;
     const number = Math.floor(Math.random() * 2) + 1;
+
     if (number === 1) {
-      solution = "Heads"
+      solution = "Heads";
     } else {
-      solution = "Tails"
+      solution = "Tails";
     }
+
     const embed = new Discord.MessageEmbed().setDescription(
       "Flipped a coin, you got " + solution.toString()
     );
+
     msg.channel.send({ embeds: [embed] });
   },
 };

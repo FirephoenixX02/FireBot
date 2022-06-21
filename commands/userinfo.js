@@ -40,6 +40,7 @@ module.exports = {
           value: (member.roles.cache.size - 1).toString(),
         }
       );
+
     channel.send({ embeds: [embed] });
   },
 };

@@ -23,7 +23,6 @@ module.exports = {
         body += chunk.toString("utf8");
       });
       response.on("end", () => {
-
         let json = JSON.parse(body);
 
         let date1 = new Date(json.created_at);

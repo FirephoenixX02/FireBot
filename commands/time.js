@@ -7,11 +7,11 @@ module.exports = {
     const embed = new Discord.MessageEmbed().setTitle("Time Spent: ").addFields(
       {
         name: "Thinking 💭 : ",
-        value: "5h",
+        value: "6h",
       },
       {
         name: "Coding ⌨️ : ",
-        value: "9h",
+        value: "10h",
       },
       {
         name: "Testing 🧪 : ",
@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         name: "Cups of Coffee ☕ :  ",
-        value: "4",
+        value: "5",
       }
     );
     msg.channel.send({ embeds: [embed] });

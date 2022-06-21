@@ -56,6 +56,7 @@ module.exports = {
           value: movie.production,
         }
       );
+
     msg.channel.send({ embeds: [embed] });
   },
 };

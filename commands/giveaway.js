@@ -12,6 +12,7 @@ module.exports = {
       msg.member.roles.cache.some((r) => r.name == "Developer")
     ) {
       const channel = msg.mentions.channels.first();
+
       if (!channel) {
         return msg.channel.send(
           "Please specify a channel where the giveaway will be created."
@@ -23,6 +24,7 @@ module.exports = {
       if (!duration) {
         msg.channel.send("Please specify a duration for the giveaway.");
       }
+
       const winners = args[2];
 
       if (!winners) {
@@ -61,6 +63,7 @@ module.exports = {
           },
         },
       });
+
       msg.channel.send(`Giveaway is starting in ${channel}`);
     } else {
       msg.channel.send(

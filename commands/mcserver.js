@@ -38,6 +38,7 @@ module.exports = {
       })
       .catch((err) => {
         msg.reply("There was an error pinging the Server. Please try again!");
+
         throw err;
       });
   },

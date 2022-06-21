@@ -1,3 +1,5 @@
+// Currently Disabled due to legal unclearance
+
 const ytdl = require("ytdl-core");
 const ytSearch = require("yt-search");
 
@@ -34,13 +36,16 @@ module.exports = {
         return msg.channel.send("You dont have the correct permissions!");
 
       const server_queue = queue.get(msg.guild.id);
+
       if (command === "play") {
         if (!args.length)
           return msg.reply("You need to add a second argument!");
 
         let song = {};
+
         if (ytdl.validateURL(args[0])) {
           const song_info = await ytdl.getInfo(args[0]);
+
           song = {
             title: song_info.videoDetails.title,
             url: song_info.videoDetails.video_url,
@@ -48,6 +53,7 @@ module.exports = {
         } else {
           const video_finder = async (query) => {
             const videoResult = await ytSearch(query);
+
             return videoResult.videos.length > 1 ? videoResult.videos[0] : null;
           };
 
@@ -75,10 +81,12 @@ module.exports = {
           try {
             const connection = await voice_channel.join();
             queue_constructor.connection = connection;
+
             video_player(msg.guild, queue_constructor.songs[0]);
           } catch (err) {
             queue.delete(msg.guild.id);
             msg.channel.send("There was an Error connecting!");
+
             throw err;
           }
         } else {
@@ -114,7 +122,9 @@ const video_player = async (guild, song) => {
     queue.delete(guild.id);
     return;
   }
+
   const stream = ytdl(song.url, { filter: "audioonly" });
+
   song_queue.connection
     .play(stream, { seek: 0, volume: 1 })
     .on("finish", () => {
@@ -128,6 +138,7 @@ const video_player = async (guild, song) => {
       }
       video_player(guild, song_queue.songs[0]);
     });
+
   await song_queue.text_channel.send(
     `:musical_note: Now playing **${song.title}**`
   );
@@ -138,9 +149,11 @@ const skip_song = (msg, server_queue) => {
     return msg.channel.send(
       "You need to be in a Voice Channel to use this command!"
     );
+
   if (!server_queue) {
     return msg.channel.send("There are no songs in the queue!");
   }
+
   server_queue.connection.dispatcher.end();
 };
 
@@ -149,6 +162,7 @@ const stop_song = (msg, server_queue) => {
     return msg.channel.send(
       "You need to be in a Voice Channel to use this command!"
     );
+
   server_queue.songs = [];
   server_queue.connection.dispatcher.end();
 };
@@ -158,21 +172,27 @@ const list_songs = (msg, server_queue) => {
     return msg.channel.send(
       "You need to be in a Voice Channel to use this command!"
     );
+
   if (!server_queue) {
     return msg.channel.send("There are no songs in the queue!");
   }
+
   const embeds = [];
   let k = 20;
+
   for (let i = 0; i < server_queue.songs.length; i += 10) {
     const current = server_queue.songs.slice(i, k);
     let j = i;
     k += 10;
+
     const info = current
       .map((track) => `${++j}) [${track.title}](${track.url})`)
       .join("\n");
+
     const embed = new Discord.MessageEmbed().setDescription(
       `**[Current Song: ${server_queue.songs[0].title}](${server_queue.songs[0].url})**\n${info}`
     );
+
     embeds.push(embed);
   }
   msg.channel.send(embeds);
@@ -181,6 +201,7 @@ const list_songs = (msg, server_queue) => {
 const loop = (msg, server_queue) => {
   const BOT_PREFIX = ",";
   const args = msg.content.slice(BOT_PREFIX.length).trim().split(/ +/);
+
   switch (args[1].toLowerCase()) {
     case "all":
       server_queue.loopall = !server_queue.loopall;

@@ -19,7 +19,9 @@ module.exports = {
       return msg.channel.send(
         "You need to be in a Voice Channel to use this command!"
       );
+
     const permissions = voiceChannel.permissionsFor(msg.client.user);
+
     if (!permissions.has("CONNECT"))
       return msg.channel.send("You dont have the correct permissions!");
     if (!permissions.has("SPEAK"))
@@ -36,12 +38,14 @@ module.exports = {
     });
 
     const player = createAudioPlayer();
+
     player.play(resource);
     connection.subscribe(player);
 
     player.on(AudioPlayerStatus.Idle, () => {
-      player.stop();
       const voicechannel = getVoiceConnection(msg.guild.id);
+
+      player.stop();
       voicechannel.destroy();
     });
   },

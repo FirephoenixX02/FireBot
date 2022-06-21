@@ -1,3 +1,5 @@
+// Deprecated & Unmaintained
+
 const Discord = require("discord.js");
 const api = require("novelcovid");
 
